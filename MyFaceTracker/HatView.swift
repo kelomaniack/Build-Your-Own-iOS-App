@@ -13,6 +13,13 @@ class HatView: UIView {
     var rightEye: [CGPoint]?
     let hatView = UIImageView()
     
+    struct Wiggling {
+        var angle = 0.0
+        var isIncrease = true
+    }
+    
+    var wiggling = Wiggling()
+    
     override init(frame: CGRect) {
         hatView.image = UIImage(named: "my_hat.png")
         super.init(frame: frame)
@@ -38,10 +45,29 @@ class HatView: UIView {
         hatView.frame = CGRect(x: eyeToEyeCenter.x - hairWidth / 2, y: eyeToEyeCenter.y - 0.8 * hairHeight, width: hairWidth, height: hairHeight)
         hatView.isHidden = false
         
+        calcWigglingAngle()
         hatView.setAnchorPoint(CGPoint(x: 0.5, y: 0.9))
         
         let angle = calcAngleFrom(leftEye[0], to: rightEye[5])
-        hatView.transform = CGAffineTransform(rotationAngle: angle)
+//        hatView.transform = CGAffineTransform(rotationAngle: angle)
+        
+        hatView.transform = CGAffineTransform(rotationAngle: (angle + CGFloat(wiggling.angle)))
+    }
+    
+    func calcWigglingAngle() {
+        if (wiggling.isIncrease) {
+            if (wiggling.angle < (Double.pi/12)) {
+                wiggling.angle += 0.02
+            } else {
+                wiggling.isIncrease = false
+            }
+        } else {
+            if (wiggling.angle > (-Double.pi/12)) {
+                wiggling.angle -= 0.02
+            } else {
+                wiggling.isIncrease = true
+            }
+        }
     }
 
     func update(leftEye: [CGPoint], rightEye: [CGPoint]) {

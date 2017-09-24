@@ -31,14 +31,21 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fE-nr-rPY">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
                                         <state key="normal" title="Swap Camera"/>
                                         <connections>
                                             <action selector="swapCameraButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e9I-ux-oxT"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kef-3I-D0t">
+                                        <rect key="frame" x="125" y="0.0" width="125" height="44"/>
+                                        <state key="normal" title="Scale Nose"/>
+                                        <connections>
+                                            <action selector="scaleNoseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EJk-RL-bdp"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ec-Um-Nqr">
-                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
+                                        <rect key="frame" x="250" y="0.0" width="125" height="44"/>
                                         <state key="normal" title="Take Photo"/>
                                         <connections>
                                             <action selector="MakeSnapshotButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pu4-kV-rXb"/>
@@ -64,6 +71,7 @@
                     <connections>
                         <outlet property="faceTrackerContainerView" destination="6we-2H-t6V" id="jOf-ey-eoY"/>
                         <outlet property="makeSnapshotButton" destination="5Ec-Um-Nqr" id="suw-Z6-8oM"/>
+                        <outlet property="scaleNoseButton" destination="Kef-3I-D0t" id="PG6-Vb-DjG"/>
                         <outlet property="swapCameraButton" destination="1fE-nr-rPY" id="ttw-N6-aVH"/>
                     </connections>
                 </viewController>

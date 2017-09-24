@@ -12,6 +12,7 @@ import FaceTracker
 class ViewController: UIViewController, FaceTrackerViewControllerDelegate {
     @IBOutlet weak var swapCameraButton: UIButton!
     @IBOutlet weak var makeSnapshotButton: UIButton!
+    @IBOutlet weak var scaleNoseButton: UIButton!
     
     @IBOutlet weak var faceTrackerContainerView: UIView!
     weak var faceTrackerViewController: FaceTrackerViewController?
@@ -45,8 +46,8 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate {
         self.view.insertSubview(nose!, aboveSubview: face!)
         hat = HatView(frame: self.view.bounds)
         self.view.insertSubview(hat!, aboveSubview: brows!)
-        self.moustache = MoustacheView(frame: self.view.bounds)
-        self.view.insertSubview(moustache!, aboveSubview: face!)
+//        self.moustache = MoustacheView(frame: self.view.bounds)
+//        self.view.insertSubview(moustache!, aboveSubview: face!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -61,6 +62,10 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate {
     @IBAction func MakeSnapshotButtonPressed(_ sender: UIButton) {
         makeSnapshot()
         flash()
+    }
+    
+    @IBAction func scaleNoseButtonPressed(_ sender: UIButton) {
+        nose?.scaleNose()
     }
     
     func flash() {
@@ -155,7 +160,8 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate {
             eyes!.update(leftEye: points.leftEye, rightEye: points.rightEye)
             nose!.update(points.nose)
             hat!.update(leftEye: points.leftEye, rightEye: points.rightEye)
-            moustache!.update(innerMouth: points.innerMouth, outerMouth: points.outerMouth)
+            
+//            moustache!.update(innerMouth: points.innerMouth, outerMouth: points.outerMouth)
             
             
             // commented out the displaying of the points
@@ -201,7 +207,7 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate {
         eyes!.isHidden = false
         nose!.isHidden = false
         hat!.isHidden = false
-        moustache!.isHidden = false
+//        moustache!.isHidden = false
     }
     
     func hideAllOverlayViews() {
@@ -211,7 +217,7 @@ class ViewController: UIViewController, FaceTrackerViewControllerDelegate {
         eyes!.isHidden = true
         nose!.isHidden = true
         hat!.isHidden = true
-        moustache!.isHidden = true
+//        moustache!.isHidden = true
         
         for (_, views) in self.overlayViews {
             for view in views {
