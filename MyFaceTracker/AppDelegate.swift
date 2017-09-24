@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  MyFaceTracker
 //
-//  Created by camtasia on 2016-03-11.
-//  Copyright © 2016 camtasia. All rights reserved.
+//  Created by kelomaniack on 2017-09-10.
+//  Copyright © 2017 Evangelos Konstantinidis. All rights reserved.
 //
 
 import UIKit
